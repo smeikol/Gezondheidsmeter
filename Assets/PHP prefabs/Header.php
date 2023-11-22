@@ -26,8 +26,14 @@ if ($path_parts[count($path_parts) - 3] == "Admin") {
 
 
     <div class="col-md-3 text-end">
-        <a href="../../Pages/Login/" class="btn btn-outline-light me-2">Login</a>
-        <a href="../../Pages/Signup/" class="btn btn-outline-light me-2">Sign-up</a>
+        <?php
+        if(isset($_SESSION['gebruikersnaam'])) {
+        }
+        else {
+            echo '<a href="../../Pages/Login/" class="btn btn-outline-light me-2">Login</a>';
+            echo '<a href="../../Pages/Signup/" class="btn btn-outline-light me-2">Sign-up</a>';   
+        }
+?>
     </div>
 
 </header>
