@@ -12,8 +12,9 @@
 <body>
     <?php include ('../../Assets/PHP prefabs/Header.php');?>
     <div class="centered-text">
-  Welkom bij Overgewicht & Zo, jouw betrouwbare metgezel op weg naar een gezonder leven! Bij Overgewicht & Zo geloven we in de kracht van inzicht en begeleiding op maat om jouw welzijnsdoelen te bereiken. Onze geavanceerde gezondheidsmeter is speciaal ontworpen om je te helpen inzicht te krijgen in jouw gezondheid en welzijn, met een focus op het aanpakken van overgewicht en het bevorderen van een gebalanceerde levensstijl.
-
+  <div class="green-background">
+    Welkom bij Overgewicht & Zo, jouw betrouwbare metgezel op weg naar een gezonder leven! Bij Overgewicht & Zo geloven we in de kracht van inzicht en begeleiding op maat om jouw welzijnsdoelen te bereiken. Onze geavanceerde gezondheidsmeter is speciaal ontworpen om je te helpen inzicht te krijgen in jouw gezondheid en welzijn, met een focus op het aanpakken van overgewicht en het bevorderen van een gebalanceerde levensstijl.
+  </div>
 </div>
 
 </body>

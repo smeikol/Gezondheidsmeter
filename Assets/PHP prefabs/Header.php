@@ -11,8 +11,9 @@
 </ul>
 
 
-  <div class="col-md-3 text-end">
-   <a href="../../Pages/Login/" class="btn btn-outline-primary me-2">Login</a>
-   <a href="../../Pages/Signup/" class="btn btn-primary">Sign-up</a>
-  </div>
+<div class="col-md-3 text-end">
+  <a href="../../Pages/Login/" class="btn btn-outline-light me-2">Login</a>
+  <a href="../../Pages/Signup/" class="btn btn-outline-light me-2">Sign-up</a>
+</div>
+
 </header>

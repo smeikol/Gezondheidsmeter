@@ -41,21 +41,24 @@ if(isset($_POST['submit'])){
 <body>
 <?php include ('../../Assets/PHP prefabs/Header.php');?>
 <div class="centered-form">
-  <form method="post" action="">
-    <div class="form-group">
-      <input type="text" name="name" required placeholder="Kies uw gebruikersnaam" class="form-control">
-    </div>
-    <div class="form-group">
-      <input type="email" name="email" required placeholder="Vul uw E-mail in" class="form-control">
-    </div>
-    <div class="form-group">
-      <input type="password" name="wachtwoord" required placeholder="Kies uw wachtwoord" class="form-control">
-    </div>
-    <div class="form-group">
-    <input type="submit" name="submit" value="Creëer uw account" class="btn btn-success">
-
-    </div>
-  </form>
+<div class="centered-form">
+  <div class="green-background">
+    <form method="post" action="">
+      <div class="form-group">
+        <input type="text" name="name" required placeholder="Kies uw gebruikersnaam" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" required placeholder="Vul uw E-mail in" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="password" name="wachtwoord" required placeholder="Kies uw wachtwoord" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="submit" name="submit" value="Creëer uw account" class="btn btn-success">
+      </div>
+    </form>
+  </div>
+</div>
 </div>
 
 </body>

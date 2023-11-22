@@ -59,10 +59,12 @@ if (isset($_POST['login'])) {
 <?php include ('../../Assets/PHP prefabs/Header.php');?>
 <div class="centered-form">
   <form method="post" action="">
+  <div class="green-background">
     <input type="text" required autofocus="" name="username" placeholder="Vul uw gebruikersnaam in" class="form-control">
     <input type="password" required name="password" placeholder="Vul uw wachtwoord in" class="form-control">
     <button type="submit" name="login" class="btn btn-success">Log in</button>
   </form>
+</div>
 </div>
 
 
