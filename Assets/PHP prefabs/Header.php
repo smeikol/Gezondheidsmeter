@@ -6,8 +6,8 @@
   </div>
 
   <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-  <li><a href="index.php" class="nav-link px-2" style="color: white;">Home</a></li>
-  <li><a href="#" class="nav-link px-2" style="color: white;">Dashboard</a></li>
+  <li><a href="../../Pages/Home/" class="nav-link px-2" style="color: white;">Home</a></li>
+  <li><a href="../../Pages/Dashboard/" class="nav-link px-2" style="color: white;">Dashboard</a></li>
 </ul>
 
 
