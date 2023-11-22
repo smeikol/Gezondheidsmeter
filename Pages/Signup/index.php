@@ -35,18 +35,28 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registreer</title>
+    <?php include('../../Assets/css/bootstrap.php'); ?> 
+    <?php include('../../Assets/css/textstyling.php'); ?> 
 </head>
 <body>
-<form method="post" action="">
-    <br>
-    <input  type="text" name="name" required placeholder="Kies uw gebruikersnaam">
-    <br> <br>
-    <input  type="email" name="email" required placeholder="Vul uw E-mail in">
-    <br> <br>
-    <input  type="password" name="wachtwoord" required placeholder="Kies uw wachtwoord">
-    <br> <br>
-    <input  type="submit" name="submit" value="Creëer uw account">
-    <br> <br>
-</form>
+<?php include ('../../Assets/PHP prefabs/Header.php');?>
+<div class="centered-form">
+  <form method="post" action="">
+    <div class="form-group">
+      <input type="text" name="name" required placeholder="Kies uw gebruikersnaam" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="email" name="email" required placeholder="Vul uw E-mail in" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="password" name="wachtwoord" required placeholder="Kies uw wachtwoord" class="form-control">
+    </div>
+    <div class="form-group">
+    <input type="submit" name="submit" value="Creëer uw account" class="btn btn-success">
+
+    </div>
+  </form>
+</div>
+
 </body>
 </html>

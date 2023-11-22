@@ -51,16 +51,21 @@ if (isset($_POST['login'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gezondheidsmeter</title>
+    <?php include('../../Assets/css/bootstrap.php'); ?> 
+    <?php include('../../Assets/css/textstyling.php'); ?> 
 </head>
 
 <body>
-    
+<?php include ('../../Assets/PHP prefabs/Header.php');?>
+<div class="centered-form">
+  <form method="post" action="">
+    <input type="text" required autofocus="" name="username" placeholder="Vul uw gebruikersnaam in" class="form-control">
+    <input type="password" required name="password" placeholder="Vul uw wachtwoord in" class="form-control">
+    <button type="submit" name="login" class="btn btn-success">Log in</button>
+  </form>
+</div>
 
-    <form  method="post" action="">
-        <input  type="text" required autofocus="" name="username" placeholder="Vul uw gebruikersnaam in">
-        <input  type="password" required name="password" placeholder="Vul uw wachtwoord in">
-        <button type="submit" name="login">Log in</button>
-    </form>
+
 
 </body>
 
