@@ -12,7 +12,7 @@ if ($path_parts[count($path_parts) - 3] == "Admin") {
 
 <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom" style="background-color: #089000;">
     <div class="col-md-3 mb-2 mb-md-0">
-        <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+        <a href="../../Pages/Home/" class="d-inline-flex link-body-emphasis text-decoration-none">
             <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap" xmlns="http://www.w3.org/2000/svg">
                 <!-- Use xlink:href for an external SVG sprite -->
                 <use xlink:href="#bootstrap"></use>
