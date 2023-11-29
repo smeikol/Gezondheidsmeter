@@ -18,15 +18,15 @@ if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) |
 
 <body>
     <?php include('../../../Assets/PHP prefabs/Header.php'); ?>   
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <button type="button" a href="../../Pages/Admin/maakvraag/ class="btn btn-primary mb-3">Bewerk lijst</button>
-                <a href="../../Admin/Createvragen/" class="btn btn-secondary mb-3">Maak vragen</a>
-                <button type="button" class="btn btn-danger mb-3">Bewerk Medewerkers</button>
-            </div>
+    <div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="../../Admin/Createvragen/" class="btn btn-secondary mb-3">Bewerk lijst</a>
+            <a href="../../Admin/Createvragen/" class="btn btn-secondary mb-3">Maak vragen</a>
+            <a href="../../Admin/Createvragen/" class="btn btn-secondary mb-3">Bewerk Medewerkers</a>
         </div>
     </div>
+</div>
     
 </body>
 

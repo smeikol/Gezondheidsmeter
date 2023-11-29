@@ -17,10 +17,10 @@ if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) |
 </head>
 <body>
 <?php include('../../../Assets/PHP prefabs/Header.php'); ?> 
-<div class="container">
-  <div class="row justify-content-center">
+<div class="container d-flex justify-content-center">
+  <div class="row green-background  ">
     <div class="col-lg-6">
-      <form class="green-background">
+      <form class="">
         <div class="mb-3">
           <label for="Vraag" class="form-label">Vraag</label>
           <input type="Vraag" class="form-control">
@@ -42,6 +42,7 @@ if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) |
     </div>
   </div>
 </div>
+
 </body>
 
 </html>
