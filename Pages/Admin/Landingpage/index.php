@@ -21,10 +21,9 @@ if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) |
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <button type="button" class="btn btn-primary mb-3">Bewerk lijst</button>
-                <button type="button" class="btn btn-secondary mb-3">Maak vragen</button>
-                <button type="button" class="btn btn-success mb-3">Bewerk gebruikers</button>
-                <button type="button" class="btn btn-danger mb-3">Bewerk Admin perms</button>
+                <button type="button" a href="../../Pages/Admin/maakvraag/ class="btn btn-primary mb-3">Bewerk lijst</button>
+                <a href="../../Admin/Createvragen/" class="btn btn-secondary mb-3">Maak vragen</a>
+                <button type="button" class="btn btn-danger mb-3">Bewerk Medewerkers</button>
             </div>
         </div>
     </div>
