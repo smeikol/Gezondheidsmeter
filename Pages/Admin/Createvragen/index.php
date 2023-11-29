@@ -26,18 +26,25 @@ if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) |
           <input type="Vraag" class="form-control">
         </div>
         <div class="mb-3">
-          <label for="Soortvraag" class="form-label">Soort vraag</label>
-          <input type="Soortvraag" class="form-control">
+          <select class="form-select form-control" aria-label="Default select example">
+            <option selected></option>
+            <option value="1">Dagelijks</option>
+            <option value="2">Weekelijks</option>
+            <option value="3">Maandelijks</option>
+          </select>
         </div>
         <div class="mb-3">
           <select class="form-select form-control" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <option selected></option>
+          <option value="0">Arbeidsomstandigheden</option>
+            <option value="1">Sport en bewegen</option>
+            <option value="2">Voeding</option>
+            <option value="3">Alcohol</option>
+            <option value="4">Drugs</option>
+            <option value="5">Slaap</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary form-control">Submit</button>
       </form>
     </div>
   </div>
