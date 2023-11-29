@@ -23,7 +23,7 @@ if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) |
         <div class="col-md-6">
             <a href="../../Admin/Createvragen/" class="btn btn-secondary mb-3">Bewerk lijst</a>
             <a href="../../Admin/Createvragen/" class="btn btn-secondary mb-3">Maak vragen</a>
-            <a href="../../Admin/Createvragen/" class="btn btn-secondary mb-3">Bewerk Medewerkers</a>
+            <a href="../../Admin/Users/" class="btn btn-secondary mb-3">Bewerk Medewerkers</a>
         </div>
     </div>
 </div>
