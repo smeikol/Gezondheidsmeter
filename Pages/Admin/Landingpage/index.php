@@ -21,7 +21,7 @@ if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) |
     <div class="container d-flex justify-content-center">
     <div class="row">
         <div class="col-md-6">
-            <a href="../../Admin/Createvragen/" class="btn btn-secondary mb-3">Bewerk lijst</a>
+            <a href="../../Admin/Bewerklijst/" class="btn btn-secondary mb-3">Bewerk lijst</a>
             <a href="../../Admin/Createvragen/" class="btn btn-secondary mb-3">Maak vragen</a>
             <a href="../../Admin/Users/" class="btn btn-secondary mb-3">Bewerk Medewerkers</a>
         </div>
