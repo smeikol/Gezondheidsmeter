@@ -38,26 +38,26 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 <?php include('../../../Assets/PHP prefabs/Header.php'); ?> 
-<div class="container d-flex justify-content-center">
-  <div class="row green-background  ">
-    <div class="col-lg-6">
-      <form method="post" class="">
+<div class="container d-flex justify-content-center align-items-center vh-600 green-background">
+  <div class="row">
+    <div class="col-lg-9 ms-auto">
+      <form method="post">
         <div class="mb-3">
           <label for="Vraag" class="form-label">Vraag</label>
-          <input type="Vraag" name="vraag" class="form-control">
+          <input type="text" name="vraag" class="form-control">
         </div>
         <div class="mb-3">
           <select class="form-select form-control" name="vraagcommon" aria-label="Default select example">
             <option selected></option>
             <option value="1">Dagelijks</option>
-            <option value="2">Weekelijks</option>
+            <option value="2">Wekelijks</option>
             <option value="3">Maandelijks</option>
           </select>
         </div>
         <div class="mb-3">
           <select class="form-select form-control" name="vraagsoort" aria-label="Default select example">
-          <option selected></option>
-          <option value="0">Arbeidsomstandigheden</option>
+            <option selected></option>
+            <option value="0">Arbeidsomstandigheden</option>
             <option value="1">Sport en bewegen</option>
             <option value="2">Voeding</option>
             <option value="3">Alcohol</option>
@@ -68,9 +68,34 @@ if(isset($_POST['submit'])){
         <button type="submit" name="submit" class="btn btn-primary form-control">Submit</button>
       </form>
     </div>
-  </div>
-</div>
+      
+    <div class="container green-background">
+  <div class="row">
+    <div class="col-lg-9 ms-auto green-background">
+    <label for="Vraag" class="form-label">Antwoorden</label>
+      <form method="post">
+      <div class="form-check mb-2">
+            <input type="checkbox" id="chkAntwoord1" class="form-check-input">
+            <input type="text" id="Antwoord1" name="Antwoord1" class="form-control">
+          </div>
 
+          <div class="form-check mb-2">
+            <input type="checkbox" id="chkAntwoord2" class="form-check-input">
+            <input type="text" id="Antwoord2" name="Antwoord2" class="form-control">
+          </div>
+
+          <div class="form-check mb-2">
+            <input type="checkbox" id="chkAntwoord3" class="form-check-input">
+            <input type="text" id="Antwoord3" name="Antwoord3" class="form-control">
+          </div>
+
+          <div class="form-check mb-2">
+            <input type="checkbox" id="chkAntwoord4" class="form-check-input">
+            <input type="text" id="Antwoord4" name="Antwoord4" class="form-control">
+          </div>
+        <button type="submit" name="submit" class="btn btn-primary form-control">Submit</button>
+      </form>
+    </div>  
 </body>
 
 </html>

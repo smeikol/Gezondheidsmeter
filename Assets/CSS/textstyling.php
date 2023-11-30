@@ -1,11 +1,6 @@
 <style>
 
-.container-full-height {
-      height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+
 
 .centered-text {
   position: absolute;
