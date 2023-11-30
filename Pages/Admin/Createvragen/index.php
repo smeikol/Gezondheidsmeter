@@ -38,10 +38,10 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 <?php include('../../../Assets/PHP prefabs/Header.php'); ?> 
-<div class="container d-flex justify-content-center align-items-center vh-600 green-background">
+<div class="container d-flex justify-content-center align-items-center vh-600">
   <div class="row">
     <div class="col-lg-9 ms-auto">
-      <form method="post">
+      <form method="post" class="green-background">
         <div class="mb-3">
           <label for="Vraag" class="form-label">Vraag</label>
           <input type="text" name="vraag" class="form-control">
@@ -69,11 +69,11 @@ if(isset($_POST['submit'])){
       </form>
     </div>
       
-    <div class="container green-background">
+    <div class="container">
   <div class="row">
-    <div class="col-lg-9 ms-auto green-background">
-    <label for="Vraag" class="form-label">Antwoorden</label>
-      <form method="post">
+    <div class="col-lg-9 ms-auto">
+      <form method="post" class="green-background">
+      <label for="Vraag" class="form-label">Antwoorden</label>
       <div class="form-check mb-2">
             <input type="checkbox" id="chkAntwoord1" class="form-check-input">
             <input type="text" id="Antwoord1" name="Antwoord1" class="form-control">
