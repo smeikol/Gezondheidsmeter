@@ -1,5 +1,19 @@
-<?php
-session_start();
+<?php include('../../../Assets/css/bootstrap.php'); ?> 
+<?php include('../../../Assets/css/textstyling.php'); ?> 
+<?php include('../../../Assets/PHP prefabs/connection.php');
+
+if (isset($_POST['edit-perms'])) {
+  $value_button = $_POST['edit-perms'];
+  echo $value_button;
+  $explodedArray = explode("-", $value_button);
+  echo $explodedArray;
+  $value_role = $explodedArray[0];
+  $user_id = $explodedArray[1];
+  $stmt = $conn->prepare("UPDATE gebruikers SET admin = ? WHERE id = ?");
+  $stmt->bind_param("ii", $value_role, $user_id);
+  $stmt->execute();
+}
+
 
 
 if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) || $_SESSION['admin'] != "1") {
@@ -38,9 +52,13 @@ if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) |
             echo '  <td>' . $row['email'] . '</td>';
             
             if ($row['admin'] == 0) {
-                echo '<td><button type="button" class="btn btn-warning btn-sm text-sm">Maak admin</button></td>';
+                echo '<form method="post" action="">';
+                echo '<td><button name="edit-perms" value="1-' . $row['id'] . '" id="edit-perms" type="submit" class="btn btn-warning btn-sm text-sm">Maak admin</button></td>';
+                echo '</form>';
             } else {
-                echo '<td><button type="button" class="btn btn-danger btn-sm text-sm">Maak gebruiker</button></td>';
+                echo '<form method="post" action="">';
+                echo '<td><button name="edit-perms" value="0-' . $row['id'] . '" id="edit-perms" type="submit" class="btn btn-danger btn-sm text-sm">Maak gebruiker</button></td>';
+                echo '</form>';
             }
             
             echo '<td><button type="button" class="btn btn-danger btn-sm text-sm">Verwijder gebruiker</button></td>';
