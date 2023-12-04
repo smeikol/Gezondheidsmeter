@@ -38,10 +38,10 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 <?php include('../../../Assets/PHP prefabs/Header.php'); ?> 
-<div class="container d-flex justify-content-center align-items-center vh-600">
-  <div class="row">
-    <div class="col-lg-9 ms-auto">
-      <form method="post" class="green-background">
+<div class="container vh-600 d-flex justify-content-center align-items-center">
+    <div class="row green-background">
+      <div class="col-lg-9">
+        <form method="post">
         <div class="mb-3">
           <label for="Vraag" class="form-label">Vraag</label>
           <input type="text" name="vraag" class="form-control">
@@ -64,38 +64,46 @@ if(isset($_POST['submit'])){
             <option value="4">Drugs</option>
             <option value="5">Slaap</option>
           </select>
-        </div>
-        <button type="submit" name="submit" class="btn btn-primary form-control">Submit</button>
-      </form>
-    </div>
-      
-    <div class="container">
-  <div class="row">
-    <div class="col-lg-9 ms-auto">
-      <form method="post" class="green-background">
-      <label for="Vraag" class="form-label">Antwoorden</label>
-      <div class="form-check mb-2">
-            <input type="checkbox" id="chkAntwoord1" class="form-check-input">
+          <label for="Vraag" class="form-label">Antwoord 1</label>
+          <div class="form-check mb-2">
+          <input type="text" id="Antwoord1" name="Antwoord1" class="form-control">
+          <div class="form-group">
+            <label for="points1">Punten</label>
             <input type="text" id="Antwoord1" name="Antwoord1" class="form-control">
+            </select>
           </div>
+        </div>
 
+        <label for="Vraag" class="form-label">Antwoord 2</label>
           <div class="form-check mb-2">
-            <input type="checkbox" id="chkAntwoord2" class="form-check-input">
+          <input type="text" id="Antwoord2" name="Antwoord2" class="form-control">
+          <div class="form-group">
+            <label for="points1">Punten</label>
             <input type="text" id="Antwoord2" name="Antwoord2" class="form-control">
+            </select>
           </div>
+        </div>
 
+        <label for="Vraag" class="form-label">Antwoord 3</label>
           <div class="form-check mb-2">
-            <input type="checkbox" id="chkAntwoord3" class="form-check-input">
+          <input type="text" id="Antwoord3" name="Antwoord3" class="form-control">
+          <div class="form-group">
+            <label for="points1">Punten</label>
             <input type="text" id="Antwoord3" name="Antwoord3" class="form-control">
+            </select>
           </div>
+        </div>
 
+        <label for="Vraag" class="form-label">Antwoord 4</label>
           <div class="form-check mb-2">
-            <input type="checkbox" id="chkAntwoord4" class="form-check-input">
+          <input type="text" id="Antwoord4" name="Antwoord4" class="form-control">
+          <div class="form-group">
+            <label for="points1">Punten</label>
             <input type="text" id="Antwoord4" name="Antwoord4" class="form-control">
+            </select>
           </div>
-        <button type="submit" name="submit" class="btn btn-primary form-control">Submit</button>
-      </form>
-    </div>  
+        </div>
+        <button type="submit" class="btn btn-primary form-control">Submit</button>
 </body>
 
 </html>
