@@ -24,6 +24,7 @@ if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) |
             <a href="../../Admin/Bewerklijst/" class="btn btn-secondary mb-3">Bewerk lijst</a>
             <a href="../../Admin/Createvragen/" class="btn btn-secondary mb-3">Maak vragen</a>
             <a href="../../Admin/Users/" class="btn btn-secondary mb-3">Bewerk Medewerkers</a>
+            <a href="../../Admin/Bewerkvragen" class="btn btn-secondary mb-3">Bewerk vragen</a>
         </div>
     </div>
 </div>
