@@ -43,17 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $updateTitle = "UPDATE vragen SET vraag = '$title', vraagcommon = '$vraagcommon', vraagsoort = '$vraagsoort' WHERE vragenid = $questionId";
         $conn->query($updateTitle);
 
-        $updatePunt1 = "UPDATE antwoorden SET punten = $punt1, antwoordoptie = '$answer1' WHERE vragen_vragenid = $questionId AND id = 1";
-        $conn->query($updatePunt1);
-
-        $updatePunt2 = "UPDATE antwoorden SET punten = $punt2, antwoordoptie = '$answer2' WHERE vragen_vragenid = $questionId AND id = 2";
-        $conn->query($updatePunt2);
-
-        $updatePunt3 = "UPDATE antwoorden SET punten = $punt3, antwoordoptie = '$answer3' WHERE vragen_vragenid = $questionId AND id = 3";
-        $conn->query($updatePunt3);
-
-        $updatePunt4 = "UPDATE antwoorden SET punten = $punt4, antwoordoptie = '$answer4' WHERE vragen_vragenid = $questionId AND id = 4";
-        $conn->query($updatePunt4);
+        // Update other fields...
+        // ...
 
         // Check for errors
         if ($conn->error) {
