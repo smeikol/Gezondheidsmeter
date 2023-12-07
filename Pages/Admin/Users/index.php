@@ -4,9 +4,7 @@
 
 if (isset($_POST['edit-perms'])) {
   $value_button = $_POST['edit-perms'];
-  echo $value_button;
   $explodedArray = explode("-", $value_button);
-  echo $explodedArray;
   $value_role = $explodedArray[0];
   $user_id = $explodedArray[1];
   $stmt = $conn->prepare("UPDATE gebruikers SET admin = ? WHERE id = ?");
