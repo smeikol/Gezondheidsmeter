@@ -18,95 +18,112 @@ if (isset($_POST['beantwoordVragen'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gezondheidsmeter</title>
-    <?php include('../../Assets/css/bootstrap.php'); ?> 
-    <?php include('../../Assets/css/textstyling.php'); ?> 
+    <?php include('../../Assets/css/bootstrap.php'); ?>
+    <?php include('../../Assets/css/textstyling.php'); ?>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="../../Assets/CSS/meter.css">
 </head>
 
 <body>
-    <?php include ('../../Assets/PHP prefabs/Header.php');?>
+    <?php include('../../Assets/PHP prefabs/Header.php'); ?>
     <div class="centered-text">
-</div>
+    </div>
     <style>
 
-        
+
     </style>
-</head>
-<body>
+    </head>
 
-    <div class="text-center">
-        <h1 class="">Gezonde Leefstijl Schaal</h1>
-    </div>
+    <body>
 
-    <div class="container-fluid d-flex justify-content-center align-items-center vh-80">
-        <div class="col-lg-8"> <!-- Bootstrap column, adjust based on your layout -->
-            <div class="schaal-container">
-                <div class="schaal">
-                    <div class="pijl"></div>
+        <div class="text-center">
+            <h1 class="">Gezonde Leefstijl Schaal</h1>
+        </div>
+
+        <div class="container">
+            <div class="guage-holder">
+                <div class="circle-mask">
+                    <div class="circle">
+                        <div class="circle-inner"></div>
+                    </div>
                 </div>
-                <div class="waarde">7</div>
+                <div class="percentage">0 %</div>
+                <br> 
+                <input type="hidden" value='30' class="text-box" placeholder="0%" onload="gawker()" />
+                <div class="gauge-copy"></div>
             </div>
         </div>
-    </div>  
-    <div class="container-fluid vh-100">
-    <div class="col-lg-12">
-        <div class="row justify-content-center">
-            <div class="col-sm-12 text-center mb-3">
-                <label class="">Arbeidsomstandigheden</label>
-                <meter class="meter w-50 text-center" id="Arbeidsomstandigheden" value="0.1">40%</meter>
-            </div>
-            <div class="col-sm-12 text-center mb-3">
-                <label class="">Sport en bewegen</label>
-                <meter class="meter w-50 text-center" id="Sport_en_bewegen" value="0.6">60%</meter>
-            </div>
-            <div class="col-sm-12 text-center mb-3">
-                <label class="">Voeding</label>
-                <meter class="meter w-50 text-center" id="Voeding" value="0.6">60%</meter>
-            </div>
-            <div class="col-sm-12 text-center mb-3">
-                <label class="">Alcohol</label>
-                <meter class="meter w-50 text-center" id="Alcohol" value="0.6">60%</meter>
-            </div>
-            <div class="col-sm-12 text-center mb-3">
-                <label class="">Drugs</label>
-                <meter class="meter w-50 text-center" id="Drugs" value="0.6">60%</meter>
-            </div>
-            <div class="col-sm-12 text-center mb-3">
-                <label class="">Slaap</label>
-                <meter class="meter w-50 text-center" id="Slaap" value="0.6">60%</meter>
+
+        <div class="container-fluid vh-100">
+            <div class="col-lg-12">
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 text-center mb-3">
+                        <label class="">Arbeidsomstandigheden</label>
+                        <meter class="meter w-50 text-center" id="Arbeidsomstandigheden" value="0.1">40%</meter>
+                    </div>
+                    <div class="col-sm-12 text-center mb-3">
+                        <label class="">Sport en bewegen</label>
+                        <meter class="meter w-50 text-center" id="Sport_en_bewegen" value="0.6">60%</meter>
+                    </div>
+                    <div class="col-sm-12 text-center mb-3">
+                        <label class="">Voeding</label>
+                        <meter class="meter w-50 text-center" id="Voeding" value="0.6">60%</meter>
+                    </div>
+                    <div class="col-sm-12 text-center mb-3">
+                        <label class="">Alcohol</label>
+                        <meter class="meter w-50 text-center" id="Alcohol" value="0.6">60%</meter>
+                    </div>
+                    <div class="col-sm-12 text-center mb-3">
+                        <label class="">Drugs</label>
+                        <meter class="meter w-50 text-center" id="Drugs" value="0.6">60%</meter>
+                    </div>
+                    <div class="col-sm-12 text-center mb-3">
+                        <label class="">Slaap</label>
+                        <meter class="meter w-50 text-center" id="Slaap" value="0.6">60%</meter>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="text-center top-0 start-0 mt-3 ms-3">
-        <button onclick='toindex()' id="beantwoordVragen" class="btn btn-primary">Beantwoord vragen</button>
-    </div>
+        <div class="text-center top-0 start-0 mt-3 ms-3">
+            <button onclick='toindex()' id="beantwoordVragen" class="btn btn-primary">Beantwoord vragen</button>
+        </div>
 
-</body>
-<script>
-    function toindex() {
-        window.location.replace("../../Pages/lijstinvullen/")
-    }
-</script>
+    </body>
+    <script>
+        function toindex() {
+            window.location.replace("../../Pages/lijstinvullen/")
+        }
+    </script>
 
 
 
 
     <script>
-        // JavaScript om de pijl te draaien op basis van de waarde
-        const waardeElement = document.querySelector('.waarde');
-        const pijlElement = document.querySelector('.pijl');
+        $(function() {
+            function updateGauge() {
+                var dVal = $('.text-box').val();
+                if (dVal === '') {
+                    dVal = 0;
+                }
 
-        function updatePijlRotatie() {
-            const waarde = parseFloat(waardeElement.innerText);
-            const rotatieHoek = (waarde / 10) * 180; // Aannemende schaal van 0 tot 10
+                if (dVal >= 0 && dVal <= 100) {
+                    var newVal = dVal * 1.8 - 45;
+                    $('.circle-inner, .gauge-copy').css({
+                        'transform': 'rotate(' + newVal + 'deg)'
+                    });
+                    $('.gauge-copy').css({
+                        'transform': 'translate(-50%, -50%) rotate(' + dVal * 1.8 + 'deg)'
+                    });
+                    $('.percentage').text(dVal + ' %');
+                } else {
+                    $('.percentage').text('Invalid input value');
+                }
+            }
 
-            pijlElement.style.transform = `translate(-50%, -50%) rotate(${rotatieHoek}deg)`;
-        }
-
-        // Voorbeeld: Wijzig de waarde en update de pijlrotatie
-        waardeElement.innerText = '-3';
-        updatePijlRotatie();
+            // Call the function on page load
+            updateGauge();
+        });
     </script>
 </body>
 
