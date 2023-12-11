@@ -33,11 +33,6 @@ if (isset($_POST['submit'])) {
   }
   // header( "Refresh:0.1; url=../Landingpage/", true, 303);
 }
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

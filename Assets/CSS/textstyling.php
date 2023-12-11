@@ -1,6 +1,57 @@
 <style>
 
+        .meter {
+                    display: block;
+                    margin-bottom: 80px; /* Spacing between meters */
+                    margin-left: 24%;
+                }
 
+
+        .custom-button-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: 1rem;
+            margin-left: 1rem;
+        }
+        .schaal-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+        }
+
+        .schaal {
+            border-radius: 50%;
+            background: conic-gradient(
+                #e74c3c 0% 33%,     /* Rood: Slecht */
+                #f39c12 33% 66%,    /* Oranje: Gemiddeld */
+                #2ecc71 66% 100%    /* Groen: Goed */
+            );
+        }
+
+        .pijl {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 10px;
+            height: 100px;
+            background-color: #3498db;
+            border-radius: 5px;
+            transform-origin: 50% 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .waarde {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
 
 .centered-text {
   position: absolute;
