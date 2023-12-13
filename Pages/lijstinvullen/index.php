@@ -13,30 +13,67 @@ $stmt->bind_param("s", $today);
 $stmt->execute();
 $result = $stmt->get_result();
 
-if ($result->num_rows > 0) { 
+if ($result->num_rows > 0) {
+    echo "djallahhhhh";
 
-}
 
-else {
+
+} else {
+    $questionlist = [];
+    for ($y = 5; $y > 0; $y--) {
+
+
     $sql2 = "SELECT DISTINCT laatstgebruikt FROM vragen";
     $stmt2 = $conn->prepare($sql2);
     $stmt2->execute();
     $result2 = $stmt2->get_result();
 
     $alldates = [];
+    $randomdatebias = [];
 
     while ($row = $result2->fetch_array()) {
         $alldates[] = $row["laatstgebruikt"];
     }
     $loopcount = count($alldates);
-    sort($alldates);
-    var_dump($alldates);
+    rsort($alldates);
     for ($loopcount; $loopcount > 0; $loopcount--) {
-        $randomdatebias = "vul later in lol ben nog niet klaar";
+        for ($i = $loopcount; $i > 0; $i--) {
+            $randomdatebias[] = $alldates[$loopcount - 1];
+        }
+    }
+    $randomnumber1 = rand(1, count($randomdatebias));
+    $chosendate = $randomdatebias[$randomnumber1 - 1];
+
+    $sql3 = "SELECT * FROM vragen  WHERE laatstgebruikt = ? ORDER BY RAND ( ) LIMIT 1";
+    $stmt3 = $conn->prepare($sql3);
+    $stmt3->bind_param("s", $chosendate);
+    $stmt3->execute();
+    $result3 = $stmt3->get_result();
+
+    while ($row2 = $result3->fetch_array()) {
+        if (in_array($row2['vragenid'], $questionlist)) { 
+            $y++;
+        } else { 
+            $questionlist[] = $row2['vragenid']; 
+        } 
+        
     }
 
+}
 
+foreach ($questionlist as $id) {
+    $updatelastuse = "UPDATE vragen SET laatstgebruikt = ? WHERE vragenid = ?";
+    $stmt4 = $conn->prepare($updatelastuse);
+    $stmt4->bind_param("ss", $today, $id);
+    $stmt4->execute();
 
+    $inserttodayslist = "INSERT INTO `dagelijkse_lijst` (`vragen_vragenid`, `datum`) VALUES (?, ?)";
+    $stmt5 = $conn->prepare($inserttodayslist);
+    $stmt5->bind_param("ss", $id, $today);
+    $stmt5->execute();
+}
+
+echo "list gemaakt";
 }
 
 
