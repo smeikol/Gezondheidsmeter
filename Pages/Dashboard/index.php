@@ -59,27 +59,27 @@ if (isset($_POST['beantwoordVragen'])) {
                 <div class="row justify-content-center">
                     <div class="col-sm-12 text-center mb-3">
                         <label class="">Arbeidsomstandigheden</label>
-                        <meter class="meter w-50 text-center" id="Arbeidsomstandigheden" value="0.1">40%</meter>
+                        <meter class="meter w-50 text-center" low="50" max="100" id="Arbeidsomstandigheden" value="30">40%</meter>
                     </div>
                     <div class="col-sm-12 text-center mb-3">
                         <label class="">Sport en bewegen</label>
-                        <meter class="meter w-50 text-center" id="Sport_en_bewegen" value="0.6">60%</meter>
+                        <meter class="meter w-50 text-center" low="50" max="100" id="Sport_en_bewegen" value="20">60%</meter>
                     </div>
                     <div class="col-sm-12 text-center mb-3">
                         <label class="">Voeding</label>
-                        <meter class="meter w-50 text-center" id="Voeding" value="0.6">60%</meter>
+                        <meter class="meter w-50 text-center" low="50" max="100" id="Voeding" value="50">60%</meter>
                     </div>
                     <div class="col-sm-12 text-center mb-3">
                         <label class="">Alcohol</label>
-                        <meter class="meter w-50 text-center" id="Alcohol" value="0.6">60%</meter>
+                        <meter class="meter w-50 text-center" low="50" max="100" id="Alcohol" value="80">60%</meter>
                     </div>
                     <div class="col-sm-12 text-center mb-3">
                         <label class="">Drugs</label>
-                        <meter class="meter w-50 text-center" id="Drugs" value="0.6">60%</meter>
+                        <meter class="meter w-50 text-center" low="50" max="100" id="Drugs" value="10">60%</meter>
                     </div>
                     <div class="col-sm-12 text-center mb-3">
                         <label class="">Slaap</label>
-                        <meter class="meter w-50 text-center" id="Slaap" value="0.6">60%</meter>
+                        <meter class="meter w-50 text-center" low="50" max="100" id="Slaap" value="25">60%</meter>
                     </div>
                 </div>
             </div>
