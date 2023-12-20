@@ -81,9 +81,7 @@ if (isset($_POST['submit'])) {
                 <input type="text" id="Antwoord1" name="Punten1" class="form-control">
                 </select>
               </div>
-            </div>
-
-            <label for="Vraag" class="form-label">Antwoord 2</label>
+            </div> 
             <div class="form-check mb-2">
               <input type="text" id="Antwoord2" name="Antwoord2" class="form-control">
               <div class="form-group">
