@@ -14,9 +14,9 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 
-$sql500 = "SELECT * FROM vragen WHERE soortvraag = 3 & MONTH(laatstgebruikt) = MONTH(?)";
+$sql500 = "SELECT * FROM vragen WHERE soortvraag = 3 AND MONTH(laatstgebruikt) = MONTH(?) AND YEAR(laatstgebruikt) = YEAR(?);";
 $stmt500 = $conn->prepare($sql500);
-$stmt500->bind_param("s", $today);
+$stmt500->bind_param("ss", $today, $today);
 $stmt500->execute();
 $result500 = $stmt500->get_result();
 
@@ -63,7 +63,7 @@ if ($result->num_rows > 0) {
             $stmt5->execute();
         }
     } else {
-        var_dump($result500);
+
 
         $questionlist = [];
         for ($y = 5; $y > 0; $y--) {
@@ -120,6 +120,8 @@ if ($result->num_rows > 0) {
         echo "list gemaakt";
     }
 }
+
+header("Location: ../vragenlijst");
 ?>
 
 <!DOCTYPE html>
