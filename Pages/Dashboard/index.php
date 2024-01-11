@@ -1,12 +1,119 @@
 <?php
-session_start();
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+include "../../Assets/PHP prefabs/connection.php";
 
 if (isset($_POST['beantwoordVragen'])) {
     $today = date("Y-m-d");
     echo $today;
+}
+
+$userid = $_SESSION['gebruikersid'];
+
+$categorie1puntentotaal = 0;
+$categorie2puntentotaal = 0;
+$categorie3puntentotaal = 0;
+$categorie4puntentotaal = 0;
+$categorie5puntentotaal = 0;
+$categorie6puntentotaal = 0;
+
+$categorie1puntenuser = 0;
+$categorie2puntenuser = 0;
+$categorie3puntenuser = 0;
+$categorie4puntenuser = 0;
+$categorie5puntenuser = 0;
+$categorie6puntenuser = 0;
+
+$percentage1 = 0;
+$percentage2 = 0;
+$percentage3 = 0;
+$percentage4 = 0;
+$percentage5 = 0;
+$percentage6 = 0;
+
+$sql = "SELECT * FROM `gebruikers_lijst_punten` WHERE gebruikers_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $userid);
+$stmt->execute();
+$result = $stmt->get_result();
+
+while ($row = $result->fetch_array()) {
+
+$lijstid = $row['dagelijkse_lijst_id'];
+
+$sql2 = "SELECT * FROM `dagelijkse_lijst` WHERE id = ?";
+$stmt2 = $conn->prepare($sql2);
+$stmt2->bind_param("s", $lijstid);
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+
+while ($row2 = $result2->fetch_array()) {
+$vraagid = $row2['vragen_vragenid'];
+
+$sql3 = "SELECT MAX(`punten`) FROM `antwoorden` WHERE vragen_vragenid = ?";
+$stmt3 = $conn->prepare($sql3);
+$stmt3->bind_param("s", $vraagid);
+$stmt3->execute();
+$result3 = $stmt3->get_result();
+
+while ($row3 = $result3->fetch_array()) {
+
+    $ctpunten = $row3[0];
+
+
+
+$categorie = $row['punten_categorie'];
+
+if ($categorie == 0) {
+    $categorie1puntentotaal += $ctpunten;
+    $categorie1puntenuser += $row['aantalpunten'];
+}
+else if ($categorie == 1) {
+    $categorie2puntentotaal += $ctpunten;
+    $categorie2puntenuser += $row['aantalpunten'];
+}
+else if ($categorie == 2) {
+    $categorie3puntentotaal += $ctpunten;
+    $categorie3puntenuser += $row['aantalpunten'];
+}
+else if ($categorie == 3) {
+    $categorie4puntentotaal += $ctpunten;
+    $categorie4puntenuser += $row['aantalpunten'];
+}
+else if ($categorie == 4) {
+    $categorie5puntentotaal += $ctpunten;
+    $categorie5puntenuser += $row['aantalpunten'];
+}
+else if ($categorie == 5) {
+    $categorie6puntentotaal += $ctpunten;
+    $categorie6puntenuser += $row['aantalpunten'];
+}
+
+
+}
+}
+}
+
+
+$totaalpuntentotaal = $categorie1puntentotaal + $categorie2puntentotaal + $categorie3puntentotaal + $categorie4puntentotaal + $categorie5puntentotaal + $categorie6puntentotaal;
+$totaalpuntenuser = $categorie1puntenuser + $categorie2puntenuser + $categorie3puntenuser + $categorie4puntenuser + $categorie5puntenuser + $categorie6puntenuser;
+
+$percentageALL = ( $totaalpuntenuser * 100 ) / $totaalpuntentotaal;
+if (!($categorie1puntentotaal == 0)){
+$percentage1 = ( $categorie1puntenuser * 100 ) / $categorie1puntentotaal;
+}
+if (!($categorie2puntentotaal == 0)){
+$percentage2 = ( $categorie2puntenuser * 100 ) / $categorie2puntentotaal;
+}
+if (!($categorie3puntentotaal == 0)){
+$percentage3 = ( $categorie3puntenuser * 100 ) / $categorie3puntentotaal;
+}
+if (!($categorie4puntentotaal == 0)){
+$percentage4 = ( $categorie4puntenuser * 100 ) / $categorie4puntentotaal;
+}
+if (!($categorie5puntentotaal == 0)){
+$percentage5 = ( $categorie5puntenuser * 100 ) / $categorie5puntentotaal;
+}
+if (!($categorie6puntentotaal == 0)){
+$percentage6 = ( $categorie6puntenuser * 100 ) / $categorie6puntentotaal;
 }
 
 ?>
@@ -48,8 +155,8 @@ if (isset($_POST['beantwoordVragen'])) {
                     </div>
                 </div>
                 <div class="percentage">0 %</div>
-                <br> 
-                <input type="hidden" value='30' class="text-box" placeholder="0%" onload="gawker()" />
+                <br>
+                <input type="hidden" value='<?php echo $percentageALL ?>' class="text-box" placeholder="0%" onload="gawker()" />
                 <div class="gauge-copy"></div>
             </div>
         </div>
@@ -59,27 +166,27 @@ if (isset($_POST['beantwoordVragen'])) {
                 <div class="row justify-content-center">
                     <div class="col-sm-12 text-center mb-3">
                         <label class="">Arbeidsomstandigheden</label>
-                        <meter class="meter w-50 text-center" low="50" max="100" id="Arbeidsomstandigheden" value="30">40%</meter>
+                        <meter class="meter w-50 text-center" low="50" max="100" id="Arbeidsomstandigheden" value="<?php echo $percentage1 ?>">40%</meter>
                     </div>
                     <div class="col-sm-12 text-center mb-3">
                         <label class="">Sport en bewegen</label>
-                        <meter class="meter w-50 text-center" low="50" max="100" id="Sport_en_bewegen" value="20">60%</meter>
+                        <meter class="meter w-50 text-center" low="50" max="100" id="Sport_en_bewegen" value="<?php echo $percentage2 ?>">60%</meter>
                     </div>
                     <div class="col-sm-12 text-center mb-3">
                         <label class="">Voeding</label>
-                        <meter class="meter w-50 text-center" low="50" max="100" id="Voeding" value="50">60%</meter>
+                        <meter class="meter w-50 text-center" low="50" max="100" id="Voeding" value="<?php echo $percentage3 ?>">60%</meter>
                     </div>
                     <div class="col-sm-12 text-center mb-3">
                         <label class="">Alcohol</label>
-                        <meter class="meter w-50 text-center" low="50" max="100" id="Alcohol" value="80">60%</meter>
+                        <meter class="meter w-50 text-center" low="50" max="100" id="Alcohol" value="<?php echo $percentage4 ?>">60%</meter>
                     </div>
                     <div class="col-sm-12 text-center mb-3">
                         <label class="">Drugs</label>
-                        <meter class="meter w-50 text-center" low="50" max="100" id="Drugs" value="10">60%</meter>
+                        <meter class="meter w-50 text-center" low="50" max="100" id="Drugs" value="<?php echo $percentage5 ?>">60%</meter>
                     </div>
                     <div class="col-sm-12 text-center mb-3">
                         <label class="">Slaap</label>
-                        <meter class="meter w-50 text-center" low="50" max="100" id="Slaap" value="25">60%</meter>
+                        <meter class="meter w-50 text-center" low="50" max="100" id="Slaap" value="<?php echo $percentage6 ?>">60%</meter>
                     </div>
                 </div>
             </div>
