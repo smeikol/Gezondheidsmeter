@@ -34,7 +34,9 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $userid);
 $stmt->execute();
 $result = $stmt->get_result();
-
+if ($result->num_rows == 0) {
+    header("Location: ../vragenlijst");
+}
 while ($row = $result->fetch_array()) {
 
 $lijstid = $row['dagelijkse_lijst_id'];

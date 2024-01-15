@@ -56,9 +56,9 @@ if (!($result->num_rows > 0)) {
     while ($row = $result->fetch_array()) {
 
 
-        $sqltest = "SELECT * FROM `gebruikers_lijst_punten` WHERE dagelijkse_lijst_id = ?";
+        $sqltest = "SELECT * FROM `gebruikers_lijst_punten` WHERE dagelijkse_lijst_id = ? AND gebruikers_id = ?";
         $stmttest = $conn->prepare($sqltest);
-        $stmttest->bind_param("s", $row['id']);
+        $stmttest->bind_param("ss", $row['id'], $_SESSION['gebruikersid']);
         $stmttest->execute();
         $resulttest = $stmttest->get_result();
 
