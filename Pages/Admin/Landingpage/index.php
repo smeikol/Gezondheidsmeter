@@ -21,9 +21,6 @@ if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) |
     <div class="container text-center">
     <div class="row">
         <div class="col-md-6 w-100">
-            <a href="../../Admin/Bewerklijst/" class="btn btn-secondary mb-5 d-block mt-3">
-                <i class="bi bi-pencil-square"></i> Bewerk lijst
-            </a>
             <a href="../../Admin/Createvragen/" class="btn btn-secondary mb-5 d-block mt-36">
                 <i class="bi bi-plus-square"></i> Maak vragen
             </a>
