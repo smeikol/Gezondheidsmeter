@@ -196,6 +196,7 @@ $percentage6 = ( $categorie6puntenuser * 100 ) / $categorie6puntentotaal;
 
         <div class="text-center top-0 start-0 mt-3 ms-3">
             <button onclick='toindex()' id="beantwoordVragen" class="btn btn-primary">Beantwoord vragen</button>
+            <a href="../../Assets/PHP prefabs/deletedatauser.php" class="btn btn-danger">Reset progressie</a>
         </div>
 
     </body>

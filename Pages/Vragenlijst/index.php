@@ -51,10 +51,9 @@ if (!($result->num_rows > 0)) {
 
 <body>
 
-<form method="post" action="">
+<form method="post" action="" class="bg-white p-4 rounded shadow-lg">
     <?php
     while ($row = $result->fetch_array()) {
-
 
         $sqltest = "SELECT * FROM `gebruikers_lijst_punten` WHERE dagelijkse_lijst_id = ? AND gebruikers_id = ?";
         $stmttest = $conn->prepare($sqltest);
@@ -76,21 +75,28 @@ if (!($result->num_rows > 0)) {
         $result2 = $stmt2->get_result();
 
         while ($row2 = $result2->fetch_array()) {
-            echo ($row2['vraag'] . "<br>" . "<input type='hidden' value='". $row['id'] . "' name='vraag[]'> </input>" . "<input type='hidden' value='". $row2['categorie'] . "' name='vraagcategorie[]'> </input>"  ."<select name='antwoord[]' id='antwoord'>");
+            echo ("<div class='mb-3'>" . $row2['vraag'] . "<br>" . 
+                "<input type='hidden' value='". $row['id'] . "' name='vraag[]'> </input>" . 
+                "<input type='hidden' value='". $row2['categorie'] . "' name='vraagcategorie[]'> </input>"  .
+                "<select class='form-select' name='antwoord[]'>");
+            
             $sql3 = "SELECT * FROM antwoorden WHERE vragen_vragenid = ?";
             $stmt3 = $conn->prepare($sql3);
             $stmt3->bind_param("s", $vragenid);
             $stmt3->execute();
             $result3 = $stmt3->get_result();
+            
             while ($row3 = $result3->fetch_array()) {
                 echo("<option value='" . $row3['punten'] . "'>". $row3['antwoordoptie'] . "</option>"  );
             }
-            echo ("</select>" . "<br>");
+            
+            echo ("</select></div>");
         }
     }
     ?>
     <button type="submit" name="submit" class="btn btn-success">Verzenden</button>
-    </form>
+</form>
+
 </body>
 
 </html>
