@@ -1,5 +1,8 @@
 <?php
 include "../../Assets/PHP prefabs/connection.php";
+if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id())) {
+    header("location: ../../Pages/Home");
+}
 include('../../Assets/css/bootstrap.php');
 include('../../Assets/css/textstyling.php');
 include('../../Assets/PHP prefabs/Header.php');

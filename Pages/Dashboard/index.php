@@ -1,6 +1,8 @@
 <?php
 include "../../Assets/PHP prefabs/connection.php";
-
+if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id())) {
+    header("location: ../../Pages/Login");
+}
 if (isset($_POST['beantwoordVragen'])) {
     $today = date("Y-m-d");
     echo $today;

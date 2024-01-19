@@ -1,7 +1,9 @@
 <?php include('../../../Assets/css/bootstrap.php'); ?> 
 <?php include('../../../Assets/css/textstyling.php'); ?> 
 <?php include('../../../Assets/PHP prefabs/connection.php');
-
+if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) || $_SESSION['admin'] != "1") {
+  header("location: ../../../Pages/Home");
+}
 if (isset($_POST['edit-perms'])) {
   $value_button = $_POST['edit-perms'];
   $explodedArray = explode("-", $value_button);
@@ -14,14 +16,11 @@ if (isset($_POST['edit-perms'])) {
 
 
 
-if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) || $_SESSION['admin'] != "1") {
-    header("location: ../../../Pages/Home");
-} ?>
+ ?>
 
 <?php include('../../../Assets/css/bootstrap.php'); ?> 
 <?php include('../../../Assets/css/textstyling.php'); ?> 
 <?php include('../../../Assets/PHP prefabs/Header.php'); ?>
-<?php include('../../../Assets/PHP prefabs/connection.php'); ?>
 
 <table class="table">
   <thead class="table-success">
@@ -59,9 +58,14 @@ if (!(isset($_SESSION['sessionid']) || $_SESSION['sessionid'] == session_id()) |
                 echo '</form>';
             }
             
-            echo '<td><button type="button" class="btn btn-danger btn-sm text-sm">Verwijder gebruiker</button></td>';
+            echo '<td><button type="button" onclick="redirect(' . $row['id'] . ')" class="btn btn-danger btn-sm text-sm">Verwijder gebruiker</button></td>';
             echo '</tr>';
         }
+
+        echo '<script> 
+        function redirect(uid) {
+        window.location = "../../../assets/PHP prefabs/deleteuser.php?gebruikersid=" + uid; 
+        }</script>'
         ?>
   </tbody>
 </table>
